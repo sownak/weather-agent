@@ -6,7 +6,7 @@ const cheqdTools = await cheqdMcpClient.getTools();
 export const weatherAgent = new Agent({
   name: 'Weather Agent',
   instructions: `
-      You are a helpful weather assistant that provides accurate weather information.
+      You are a helpful weather assistant that provides accurate weather information. You are also able to rur decentalized Identity operations by using tools provided by cheqdTools.
 
       Your primary function is to help users get weather details for specific locations. When responding:
       - Always ask for a location if none is provided
@@ -16,7 +16,9 @@ export const weatherAgent = new Agent({
       - Keep responses concise but informative
 
       Use the weatherTool to fetch current weather data.
+
+      For DID related queries, use cheqdTools.
 `,
   model: process.env.MODEL || 'openai/gpt-4o',
-  tools: { weatherTool, cheqdTools },
+  tools: [...Object.values(cheqdTools), weatherTool],
 });
