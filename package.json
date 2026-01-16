@@ -15,9 +15,10 @@
   "dependencies": {
     "@ai-sdk/openai": "^2.0.87",
     "@mastra/core": "latest",
-    "@mastra/libsql": "latest",
+    "@mastra/libsql": "^0.16.4",
     "@mastra/loggers": "latest",
     "@mastra/mcp": "^0.14.5",
+    "@mastra/memory": "^0.15.13",
     "zod": "^3.25.76"
   },
   "devDependencies": {
